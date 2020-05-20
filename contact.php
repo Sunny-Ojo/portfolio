@@ -11,7 +11,7 @@ require "sendgrid-php.php";
 // https://github.com/sendgrid/sendgrid-php/releases
 
 $email = new \SendGrid\Mail\Mail();
-$email->setFrom("test@example.com", "Example User");
+$email->setFrom($_POST["email"]);
 $email->setSubject("Sending with Twilio SendGrid is Fun");
 $email->addTo("njokusunnyojo@gmail.com");
 $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
