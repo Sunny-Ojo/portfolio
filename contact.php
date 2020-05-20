@@ -1,32 +1,29 @@
 <?php
 session_start();
 
-$name = $_POST["name"];
-$email = $_POST["email"];
-$company_name = $_POST["company_name"];
-$company_address = $_POST["company_address"];
-$subject = $_POST["subject"];
-$phone = $_POST["number"];
-$message = $_POST["your_message"];
+// require 'vendor/autoload.php'; // If you're using Composer (recommended)
+// Comment out the above line if not using Composer
+require "sendgrid-php.php";
+// If not using Composer, uncomment the above line and
+// download sendgrid-php.zip from the latest release here,
+// replacing <PATH TO> with the path to the sendgrid-php.php file,
+// which is included in the download:
+// https://github.com/sendgrid/sendgrid-php/releases
 
-$toEmail = 'njokusunnyojo@gmail.com';
-$senderName = $name;
-$mailSubject = $subject;
-$headers = "MIME-Version: 1.0" . "\r\n";
-$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-// More headers
-$headers .= 'From: ' . $senderName . '  <your online portfolio>' . "\r\n";
-
-$txt = $message . "\r\n" . "Sender email:  " . $email . "\r\n" . "Sender Phone number" . $phone . "\r\n" . "Company Name: " . $company_name . "\r\n" . "Company Address:" . $company_address;
-$txt = str_replace("\n.", "\n..", $txt);
-$txt = wordwrap($txt, 70);
-
-$send = mail($toEmail, $mailSubject, $txt, $headers);
-if ($send) {
-    $_SESSION["success"] = "Email Sent. I'll get back to you";
-    header("Location: index.php");
-} else {
-    $_SESSION["error"] = 'Error occured, Please try again.';
-    header("Location: index.php");
+$email = new \SendGrid\Mail\Mail();
+$email->setFrom("test@example.com", "Example User");
+$email->setSubject("Sending with Twilio SendGrid is Fun");
+$email->addTo("njokusunnyojo@gmail.com");
+$email->addContent("text/plain", "and easy to do anywhere, even with PHP");
+$email->addContent(
+    "text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
+);
+$sendgrid = new \SendGrid('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');
+try {
+    $response = $sendgrid->send($email);
+    print $response->statusCode() . "\n";
+    print_r($response->headers());
+    print $response->body() . "\n";
+} catch (Exception $e) {
+    echo 'Caught exception: ' . $e->getMessage() . "\n";
 }
