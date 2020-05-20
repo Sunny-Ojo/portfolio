@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 $name = $_POST["name"];
 $email = $_POST["email"];
 $company_name = $_POST["company_name"];

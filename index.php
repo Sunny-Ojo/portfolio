@@ -257,7 +257,7 @@ if (isset($_SESSION["error"])) {
                                 </div>
                                 <div class="gallery_heading">
                                     <span>About-section of an Event</span>
-                                    <a href="works_details.html">
+                                    <a href="#">
                                         <h4>An Online Registration Platform</h4>
                                     </a>
                                 </div>
@@ -268,7 +268,7 @@ if (isset($_SESSION["error"])) {
                                 </div>
                                 <div class="gallery_heading">
                                     <span>Admin Dashboard</span>
-                                    <a href="works_details.html">
+                                    <a href="#">
                                         <h4>Admin Panel</h4>
                                     </a>
                                 </div>
@@ -281,7 +281,7 @@ if (isset($_SESSION["error"])) {
                                 </div>
                                 <div class="gallery_heading">
                                     <span>Overview of staff's data</span>
-                                    <a href="works_details.html">
+                                    <a href="#">
                                         <h4>Admin Dashboard</h4>
                                     </a>
                                 </div>
@@ -292,7 +292,7 @@ if (isset($_SESSION["error"])) {
                                 </div>
                                 <div class="gallery_heading">
                                     <span>A staffs Profile</span>
-                                    <a href="works_details.html">
+                                    <a href="#">
                                         <h4>Overview of a staff's profile</h4>
                                     </a>
                                 </div>
