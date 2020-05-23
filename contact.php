@@ -1,5 +1,6 @@
 <?php
-
+ini_set("SMTP","ssl://smtp.gmail.com");
+ini_set("smtp_port","587");
 $to = "njokusunnyojo@gmail.com";
 $from = $_POST["email"];
 $name = $_POST["name"];
